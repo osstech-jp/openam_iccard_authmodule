@@ -35,8 +35,8 @@ Partial Class ICCardAuthn
         Me.bQuit.Name = "bQuit"
         Me.bQuit.Size = New System.Drawing.Size(96, 21)
         Me.bQuit.TabIndex = 12
-        'Me.bQuit.Text = "Quit"
-        Me.bQuit.Text = "閉じる"
+        Me.bQuit.Text = "Quit"
+        'Me.bQuit.Text = "閉じる"
         Me.bQuit.UseVisualStyleBackColor = True
         '
         'mMSg
@@ -59,8 +59,8 @@ Partial Class ICCardAuthn
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(237, 24)
         Me.Label1.TabIndex = 15
-        'Me.Label1.Text = "IC Card Authentication"
-        Me.Label1.Text = "ICカード 認証"
+        Me.Label1.Text = "IC Card Authentication"
+        'Me.Label1.Text = "ICカード 認証"
         '
         'Label2
         '
@@ -70,8 +70,8 @@ Partial Class ICCardAuthn
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(273, 38)
         Me.Label2.TabIndex = 15
-        Me.Label2.Text = "ICカードをカードリーダーにかざして下さい"
-        'Me.Label2.Text = "Please be held over the IC card " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "into the card reader"
+        'Me.Label2.Text = "ICカードをカードリーダーにかざして下さい"
+        Me.Label2.Text = "Please be held over the IC card " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "into the card reader"
         '
         'Label3
         '
