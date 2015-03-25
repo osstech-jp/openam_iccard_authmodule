@@ -20,4 +20,5 @@ Contains Authentication Module for OpenAM and Clients to send read information f
    Android: Coming Soon ...
 
 3. Start Authentication with your browzer
+
    Wondows(64bit): internet explorer
