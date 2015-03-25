@@ -18,4 +18,6 @@ Contains Authentication Module for OpenAM and Clients to send read information f
                       https://msdn.microsoft.com/ja-jp/library/ie/aa767914(v=vs.85).aspx 
     
    Android: Coming Soon ...
-3. Start Authentication with internet explorer
+
+3. Start Authentication with your browzer
+   Wondows(64bit): internet explorer
