@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>ポータルトリガー</title>
+<!--
+<script>
+ function function_authn(obj){
+  url = obj.getAttribute('href');
+  var cookies = document.cookie;
+  window.alert("cookies:" + cookies);
+  if(cookies.indexOf('iplanetDirectoryPro') == -1){
+    url = 'openam://' + url;
+    document.cookie = 'iplanetDirectoryPro=ok'
+  }
+  
+  url = 'openam://' + url;
+  window.open(url, null);
+}
+</script>
+-->
+</head>
+<body>
+<h2>ポータルサイト</h2>
+<li><a href="openam://http://yahoo.co.jp/">Yahoo</a></li>
+<li><a href="openam://https://ssoqa1.testtech.co.jp/openam/">ユーザプロファイル</a></li>
+<li><a href="openam://http://sso-qa1-ap.testtech.co.jp/test/header.jsp">Oltu</a></li>
+<!--
+<li><a href="http://yahoo.co.jp/" target="_blank" onClick="function_authn(this);return false;">Yahoo</a></li>
+<li><a href="https://ssoqa1.testtech.co.jp/openam/" target="_blank" onClick="function_authn(this);return false;">ユーザプロファイル</a></li>
+-->
+</body>
+</html>
