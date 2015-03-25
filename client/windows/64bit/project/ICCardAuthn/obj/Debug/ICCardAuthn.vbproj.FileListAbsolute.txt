@@ -16,3 +16,11 @@ C:\workspace\openam-develop\openam-authentication\iccard\client\windows\64bit\pr
 C:\workspace\openam-develop\openam-authentication\iccard\client\windows\64bit\project\ICCardAuthn\obj\Debug\ICCardAuthn.exe
 C:\workspace\openam-develop\openam-authentication\iccard\client\windows\64bit\project\ICCardAuthn\obj\Debug\ICCardAuthn.xml
 C:\workspace\openam-develop\openam-authentication\iccard\client\windows\64bit\project\ICCardAuthn\obj\Debug\ICCardAuthn.pdb
+C:\workspace\openam-develop\openam-authentication\iccard\client\windows\64bit\project\ICCardAuthn\bin\Debug\ICCardAuthn.exe
+C:\workspace\openam-develop\openam-authentication\iccard\client\windows\64bit\project\ICCardAuthn\bin\Debug\ICCardAuthn.pdb
+C:\workspace\openam-develop\openam-authentication\iccard\client\windows\64bit\project\ICCardAuthn\bin\Debug\ICCardAuthn.xml
+C:\workspace\openam-develop\openam-authentication\iccard\client\windows\64bit\project\ICCardAuthn\bin\Debug\Interop.SHDocVw.dll
+C:\workspace\openam-develop\openam-authentication\iccard\client\windows\64bit\project\ICCardAuthn\obj\Debug\ResolveAssemblyReference.cache
+C:\workspace\openam-develop\openam-authentication\iccard\client\windows\64bit\project\ICCardAuthn\obj\Debug\ICCardAuthn.ICCardAuthn.resources
+C:\workspace\openam-develop\openam-authentication\iccard\client\windows\64bit\project\ICCardAuthn\obj\Debug\ICCardAuthn.Resources.resources
+C:\workspace\openam-develop\openam-authentication\iccard\client\windows\64bit\project\ICCardAuthn\obj\Debug\ICCardAuthn.vbproj.GenerateResource.Cache
