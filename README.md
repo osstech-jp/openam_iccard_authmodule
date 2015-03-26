@@ -27,4 +27,4 @@ Contains Authentication Module for OpenAM and Clients to send read information f
 
    Android: Coming Soon ... <br/>
 
-3. Start Authentication with your browzer <br/>
+3. Start Authentication with your browser <br/>
