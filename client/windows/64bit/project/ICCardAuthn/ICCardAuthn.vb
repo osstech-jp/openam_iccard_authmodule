@@ -32,7 +32,15 @@ Public Class ICCardAuthn
     Dim SendBuff(262), RecvBuff(262) As Byte
     Public detect As Boolean
     Dim readerText As String
+    Const tServerURL As String = "https://ssoqa1.testtech.co.jp/openam/UI/Login"
+    Const BW_IE As String = "ie"
+    Const BW_FIREFOX As String = "firefox"
+    Const BW_CHROME As String = "chrome"
+    Const BW_OPERA As String = "opera"
+    Const BW_SAFARI As String = "safari"
+    Const BW_LUNASCAPE As String = "lunascape"
     Dim gotoString As String
+    Dim userAgent As String = ""
 
     Private Sub InitMenu() Handles Me.Shown
 
@@ -50,14 +58,37 @@ Public Class ICCardAuthn
 
         Dim ReaderCount As Long
         Dim ctr As Integer
+        Dim strArrayData() As String
+        Dim strURL As String = ""
+        Dim qParam As String = ""
+        Dim browzer As String
 
         Dim cmds As String() = System.Environment.GetCommandLineArgs()
+
         If cmds.Length > 1 Then
-            gotoString = cmds(1).Replace("openam://", "")
-            If gotoString = "/" Then
-                gotoString = ""
+
+            gotoString = cmds(1).Replace("openam:", "")
+            strArrayData = Split(gotoString, "?")
+            If (strArrayData.Length > 0) Then
+                strURL = strArrayData(0)
             End If
-            displayOut(5, 0, "goto=" + gotoString)
+            If strURL = "/" Then
+                strURL = ""
+            End If
+            If (strArrayData.Length > 1) Then
+                qParam = strArrayData(1)
+            End If
+            userAgent = qParam.Replace("ua=", "")
+            gotoString = strURL
+        End If
+        displayOut(5, 0, "goto=" + gotoString)
+        displayOut(5, 0, "ua=" + userAgent)
+
+        browzer = CheckBrowzer(userAgent)
+        If browzer <> BW_IE Then
+            Call displayOut(9, 0, "Please use The Microsoft Internet Explorer!!")
+            retCode = 999
+            Exit Sub
         End If
 
         For ctr = 0 To 255
@@ -67,7 +98,6 @@ Public Class ICCardAuthn
         ReaderCount = 255
 
         ' 1. Establish context and obtain hContext handle
-        'retCode = ModWinsCard.SCardEstablishContext(ModWinsCard.SCARD_SCOPE_USER, 0, 0, hContext)
         retCode = ModWinsCard.SCardEstablishContext(ModWinsCard.SCARD_SCOPE_USER, 0L, 0L, hContext)
 
         If retCode <> ModWinsCard.SCARD_S_SUCCESS Then
@@ -112,7 +142,8 @@ Public Class ICCardAuthn
                 PrintText = ">" + PrintText
             Case 4
                 mMSg.SelectionColor = Drawing.Color.Green
-
+            Case 9
+                mMSg.SelectionColor = Drawing.Color.Red
         End Select
 
         mMSg.SelectedText = PrintText & vbCrLf
@@ -160,24 +191,31 @@ Public Class ICCardAuthn
         Dim vPost As Object
         Dim vHeaders As Object
         Dim postData As String
-        Dim tServerURL As String
+        'Dim browzer As String
+        Dim obj = CreateObject("Wscript.Shell")
 
-        tServerURL = "https://ssoqa1.testtech.co.jp/openam/UI/Login"
         If (gotoString <> Nothing) Then
-            postData = "IDToken1=" + Idm + "&goto=http://" + gotoString
+            postData = "IDToken1=" + Idm + "&goto=" + gotoString
         Else
             postData = "IDToken1=" + Idm
         End If
 
         vHeaders = "Content-Type: application/x-www-form-urlencoded" + Chr(10) + Chr(13)
         vPost = ASCIIEncoding.ASCII.GetBytes(postData)
-        displayOut(5, 0, "postData=" + postData)
+        'displayOut(5, 0, "postData=" + postData)
 
+        'browzer = CheckBrowzer(userAgent)
+        'If browzer = BW_IE Then
         ie = New SHDocVw.InternetExplorer()
         'ie.Visible = True
         ie.Navigate2(tServerURL, , "iccardAuth", vPost, vHeaders)
         ie.Quit()
         ie = Nothing
+        'ElseIf browzer = BW_FIREFOX Then
+        'obj.Run("firefox.exe -url " + tServerURL + "?service=iccardService&" + postData, 1, True)
+        'obj = Nothing
+        'End If
+
 
         ' terminate the application
         retCode = ModWinsCard.SCardReleaseContext(hContext)
@@ -332,6 +370,22 @@ Public Class ICCardAuthn
         Call Send_Idm(idm)
 
     End Function
+    Private Function CheckBrowzer(ByVal userAgent As String) As String
+        If userAgent.IndexOf("MSIE") > 0 Then
+            CheckBrowzer = BW_IE
+        ElseIf userAgent.IndexOf("Chrome") > 0 Then
+            CheckBrowzer = BW_CHROME
+        ElseIf userAgent.IndexOf("Lunascape") > 0 Then
+            CheckBrowzer = BW_LUNASCAPE
+        ElseIf userAgent.IndexOf("Firefox") > 0 Then
+            CheckBrowzer = BW_FIREFOX
+        ElseIf userAgent.IndexOf("Safari") > 0 Then
+            CheckBrowzer = BW_SAFARI
+        Else
+            CheckBrowzer = BW_IE
+        End If
+    End Function
+
 
 
     Private Sub InterpretATR()

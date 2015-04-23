@@ -33,6 +33,7 @@
 <%@ page import="java.util.ResourceBundle" %>
 <%@ page import="java.util.MissingResourceException" %>
 <%@ page import="java.util.Locale" %>
+<%@ page import="java.net.URLEncoder" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <%@page info="ICCard" language="java"%>
@@ -69,14 +70,12 @@
                 encoded = "true";
             }
             String reqURL = request.getParameter("goto");
-            String iccardURL = "";
-            if ((reqURL != null) && (reqURL.length() != 0)) {
-            	iccardURL = reqURL.replace("http://", "");
-            }
+    		String useragent = request.getHeader("user-agent");
             String customSchema = resources.getString("custom.schema.name");
+			String encodeUA = URLEncoder.encode(useragent,"utf-8");
 
             %>
-        	<meta http-equiv="Refresh" content="0;URL=<%= customSchema%>://<%= iccardURL%>">
+        	<meta http-equiv="Refresh" content="0;URL=<%= customSchema%>:<%= reqURL%>?ua=<%= encodeUA%>">
             <script language="JavaScript" src="<%= ServiceURI%>/js/mobile.js" type="text/javascript"></script>
             <script>
                 writeNewCSS('<%= ServiceURI%>');

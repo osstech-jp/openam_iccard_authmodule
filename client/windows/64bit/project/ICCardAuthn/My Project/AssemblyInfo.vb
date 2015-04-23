@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("IC Card Authn")> 
+<Assembly: AssemblyTitle("Get Idm")> 
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("OssTech")> 
-<Assembly: AssemblyProduct("ICCard_Authn")> 
+<Assembly: AssemblyCompany("ACS")> 
+<Assembly: AssemblyProduct("Get Idm")> 
 <Assembly: AssemblyCopyright("Copyright © Osstech 2015")> 
 <Assembly: AssemblyTrademark("")> 
 

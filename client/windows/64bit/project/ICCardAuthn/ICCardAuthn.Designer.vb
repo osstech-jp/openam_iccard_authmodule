@@ -59,8 +59,8 @@ Partial Class ICCardAuthn
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(237, 24)
         Me.Label1.TabIndex = 15
+        'Me.Label1.Text = "IC Card 認証"
         Me.Label1.Text = "IC Card Authentication"
-        'Me.Label1.Text = "ICカード 認証"
         '
         'Label2
         '
@@ -68,9 +68,9 @@ Partial Class ICCardAuthn
         Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label2.Location = New System.Drawing.Point(12, 73)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(273, 38)
+        Me.Label2.Size = New System.Drawing.Size(227, 32)
         Me.Label2.TabIndex = 15
-        'Me.Label2.Text = "ICカードをカードリーダーにかざして下さい"
+        'Me.Label2.Text = "ICカードをカードリーダーにかざしてください"
         Me.Label2.Text = "Please be held over the IC card " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "into the card reader"
         '
         'Label3
